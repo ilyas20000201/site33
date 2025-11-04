@@ -1,0 +1,3842 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D4SD Hub - Digital for Sustainable Development</title>
+    <style>
+       /* =========================================
+   D4SD HUB - CSS PROFESSIONNEL ET FUTURISTE
+   Design sobre et élégant pour présentation ministérielle
+   ========================================= */
+
+/* ==========================================
+   1. RESET & VARIABLES GLOBALES
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Couleurs principales - Palette professionnelle */
+    --primary-dark: #0a0e27;
+    --secondary-dark: #1a1f3a;
+    --tertiary-dark: #2a2f4a;
+    --accent-blue: #4a9eff;
+    --accent-cyan: #00d4ff;
+    --accent-purple: #7c3aed;
+    --accent-green: #10b981;
+    
+    /* Couleurs de texte */
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-dark: #1e293b;
+    
+    /* Couleurs de fond */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: rgba(30, 41, 59, 0.6);
+    --bg-overlay: rgba(15, 23, 42, 0.95);
+    
+    /* Bordures et ombres */
+    --border-color: rgba(74, 158, 255, 0.15);
+    --border-hover: rgba(74, 158, 255, 0.4);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --shadow-glow: 0 0 30px rgba(74, 158, 255, 0.2);
+    
+    /* Espacements */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Border radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+    
+    /* Typographie */
+    --font-primary: 'Montserrat', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-secondary: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    
+    /* Z-index layers */
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sticky: 500;
+    --z-fixed: 1000;
+    --z-modal: 2000;
+    --z-tooltip: 3000;
+}
+
+/* ==========================================
+   2. TYPOGRAPHIE
+   ========================================== */
+
+body {
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+}
+
+h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--accent-cyan);
+}
+
+/* ==========================================
+   3. FOND ANIMÉ ET PARTICULES
+   ========================================== */
+
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: linear-gradient(135deg, 
+        var(--primary-dark) 0%, 
+        var(--secondary-dark) 50%, 
+        var(--tertiary-dark) 100%
+    );
+}
+
+.animated-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(74, 158, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+    animation: backgroundPulse 15s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: scale(1.05);
+    }
+}
+
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* ==========================================
+   4. LOADER PROFESSIONNEL
+   ========================================== */
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-circle {
+    width: 80px;
+    height: 80px;
+    border: 3px solid rgba(74, 158, 255, 0.1);
+    border-top-color: var(--accent-blue);
+    border-radius: 50%;
+    animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    box-shadow: 0 0 20px rgba(74, 158, 255, 0.3);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==========================================
+   5. NAVIGATION PROFESSIONNELLE
+   ========================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-fixed);
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+}
+
+.navbar.scrolled {
+    background: var(--bg-overlay);
+    box-shadow: var(--shadow-lg);
+    border-bottom-color: var(--border-hover);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.75rem;
+    font-weight: 800;
+    font-family: var(--font-primary);
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    letter-spacing: -0.03em;
+    position: relative;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+    transition: width var(--transition-normal);
+}
+
+.logo:hover::after {
+    width: 100%;
+}
+
+.logo:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+}
+
+.nav-menu {
+    display: flex;
+    gap: var(--spacing-xl);
+    list-style: none;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    padding: var(--spacing-sm) var(--spacing-md);
+    transition: all var(--transition-fast);
+    letter-spacing: 0.02em;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+    transform: translateX(-50%);
+    transition: width var(--transition-normal);
+    border-radius: var(--radius-full);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-primary);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: calc(var(--z-fixed) + 1);
+    padding: var(--spacing-sm);
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background: var(--accent-blue);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-normal);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ==========================================
+   6. HERO SECTION
+   ========================================== */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: var(--spacing-xl);
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 1200px;
+    text-align: center;
+    z-index: 10;
+    animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    margin-bottom: var(--spacing-lg);
+    color: var(--accent-blue);  /* Couleur fixe pour le texte */
+    line-height: 1.1;
+    position: relative;
+}
+
+
+
+@keyframes titleGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 15px rgba(74, 158, 255, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 30px rgba(74, 158, 255, 0.5));
+    }
+}
+
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-2xl);
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+/* ==========================================
+   7. BOUTONS PROFESSIONNELS
+   ========================================== */
+
+.btn {
+    padding: var(--spacing-md) var(--spacing-2xl);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    letter-spacing: 0.03em;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    color: white;
+    box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(74, 158, 255, 0.5);
+}
+
+.btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--accent-blue);
+    border: 2px solid var(--accent-blue);
+    box-shadow: 0 0 15px rgba(74, 158, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: var(--accent-blue);
+    color: white;
+    box-shadow: 0 0 30px rgba(74, 158, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn-secondary:active {
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   8. ÉLÉMENTS FLOTTANTS
+   ========================================== */
+
+.floating-element {
+    position: absolute;
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(-30px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(-2deg);
+    }
+}
+
+.float-1 {
+    top: 20%;
+    left: 10%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(74, 158, 255, 0.15), transparent);
+    border-radius: 50%;
+    animation-delay: 0s;
+}
+
+.float-2 {
+    top: 60%;
+    right: 15%;
+    width: 130px;
+    height: 130px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.12), transparent);
+    border-radius: 50%;
+    animation-delay: 2.5s;
+}
+
+.float-3 {
+    bottom: 20%;
+    left: 20%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.12), transparent);
+    border-radius: 50%;
+    animation-delay: 5s;
+}
+
+/* ==========================================
+   9. SECTIONS STATISTIQUES
+   ========================================== */
+
+.stats-section {
+    padding: var(--spacing-3xl) var(--spacing-xl);
+    position: relative;
+    z-index: 10;
+}
+
+.stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.stat-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(74, 158, 255, 0.08), transparent);
+    transition: left 0.7s ease;
+}
+
+.stat-card:hover::before {
+    left: 100%;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-hover);
+    box-shadow: 0 15px 40px rgba(74, 158, 255, 0.2);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(74, 158, 255, 0.3);
+    transition: transform var(--transition-normal);
+}
+
+.stat-card:hover .stat-icon {
+    transform: scale(1.1) rotateY(180deg);
+}
+
+.stat-number {
+    font-size: 2.75rem;
+    font-weight: 900;
+    color: var(--accent-blue);
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-primary);
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ==========================================
+   10. SECTIONS ABOUT
+   ========================================== */
+
+.about-section,
+.projects-section,
+.partners-section,
+.resources-section,
+.contact-section {
+    padding: var(--spacing-3xl) var(--spacing-xl);
+    position: relative;
+    z-index: 10;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    margin-bottom: var(--spacing-2xl);
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+    border-radius: var(--radius-full);
+}
+
+.about-content,
+.projects-grid,
+.partners-grid,
+.resources-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+/* ==========================================
+   11. CARTES PROFESSIONNELLES
+   ========================================== */
+
+.about-card,
+.project-card,
+.partner-card,
+.resource-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan), var(--accent-purple));
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    transform: scaleX(0);
+    transition: transform var(--transition-normal);
+}
+
+.about-card:hover::after,
+.project-card:hover::after,
+.resource-card:hover::after {
+    transform: scaleX(1);
+}
+
+.about-card:hover,
+.project-card:hover,
+.partner-card:hover,
+.resource-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(74, 158, 255, 0.25);
+    border-color: var(--border-hover);
+}
+
+.card-icon,
+.resource-icon {
+    width: 65px;
+    height: 65px;
+    margin-bottom: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(74, 158, 255, 0.3);
+    transition: transform var(--transition-normal);
+}
+
+.about-card:hover .card-icon,
+.resource-card:hover .resource-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.card-title,
+.project-title,
+.resource-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--accent-blue);
+    font-family: var(--font-primary);
+}
+
+.card-text,
+.project-description,
+.resource-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+/* ==========================================
+   12. PROJETS
+   ========================================== */
+
+.project-card {
+    cursor: pointer;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(74, 158, 255, 0.05), rgba(124, 58, 237, 0.05));
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    z-index: 1;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-image {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, #1e3a8a, #7c3aed, #4a9eff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.project-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.7s ease;
+}
+
+.project-card:hover .project-image::before {
+    left: 100%;
+}
+
+.project-content {
+    position: relative;
+    z-index: 2;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.tag {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: rgba(74, 158, 255, 0.15);
+    border: 1px solid rgba(74, 158, 255, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    color: var(--accent-cyan);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.tag:hover {
+    background: rgba(74, 158, 255, 0.25);
+    border-color: rgba(74, 158, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.project-progress {
+    margin-bottom: var(--spacing-lg);
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(74, 158, 255, 0.15);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+    border-radius: var(--radius-full);
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 0 10px rgba(74, 158, 255, 0.5);
+}
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+}
+
+.project-meta {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   13. PARTENAIRES
+   ========================================== */
+
+.partners-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.partner-card {
+    padding: var(--spacing-xl);
+    text-align: center;
+    cursor: pointer;
+}
+
+.partner-card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.partner-logo {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto var(--spacing-md);
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(74, 158, 255, 0.3);
+    transition: transform var(--transition-normal);
+}
+
+.partner-card:hover .partner-logo {
+    transform: scale(1.15) rotateY(180deg);
+}
+
+.partner-name {
+    font-weight: 600;
+    color: var(--accent-blue);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.05rem;
+}
+
+.partner-country {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   14. RESSOURCES
+   ========================================== */
+
+.resource-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(74, 158, 255, 0.08), transparent);
+    transition: left 0.7s ease;
+}
+
+.resource-card:hover::before {
+    left: 100%;
+}
+
+.resource-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.resource-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: var(--spacing-lg);
+}
+
+.download-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    border: none;
+    border-radius: var(--radius-md);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(74, 158, 255, 0.4);
+}
+
+.download-btn:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================
+   15. FORMULAIRE DE CONTACT
+   ========================================== */
+
+.contact-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-3xl);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-form {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--accent-blue);
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
+
+.form-input,
+.form-textarea {
+    padding: var(--spacing-md);
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: var(--font-secondary);
+    transition: all var(--transition-normal);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+    background: rgba(15, 23, 42, 0.95);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.form-textarea {
+    min-height: 150px;
+    resize: vertical;
+    font-family: var(--font-secondary);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.submit-btn {
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    border: none;
+    border-radius: var(--radius-md);
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(74, 158, 255, 0.5);
+}
+
+.submit-btn:active {
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   16. FOOTER
+   ========================================== */
+
+.footer {
+    background: var(--bg-overlay);
+    padding: var(--spacing-3xl) var(--spacing-xl) var(--spacing-xl);
+    border-top: 1px solid var(--border-color);
+    position: relative;
+    z-index: 10;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.footer-section h3 {
+    color: var(--accent-blue);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+}
+
+.footer-section p,
+.footer-section a {
+    color: var(--text-muted);
+    line-height: 1.8;
+    text-decoration: none;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    transition: all var(--transition-fast);
+    font-size: 0.95rem;
+}
+
+.footer-section a:hover {
+    color: var(--accent-blue);
+    transform: translateX(5px);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(74, 158, 255, 0.15);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(74, 158, 255, 0.3);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   17. SCROLL TO TOP
+   ========================================== */
+
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all var(--transition-normal);
+    z-index: var(--z-fixed);
+    box-shadow: 0 8px 20px rgba(74, 158, 255, 0.3);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 12px 30px rgba(74, 158, 255, 0.5);
+}
+
+.scroll-top:active {
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* ==========================================
+   18. MODAL
+   ========================================== */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal);
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: var(--bg-overlay);
+    backdrop-filter: blur(20px);
+    padding: var(--spacing-3xl);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-hover);
+    max-width: 700px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: transform var(--transition-normal);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    font-family: var(--font-primary);
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    background: rgba(74, 158, 255, 0.15);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.modal-close:hover {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.modal-body h3 {
+    color: var(--text-primary);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.3rem;
+}
+
+.modal-body ul {
+    margin-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-body li {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ==========================================
+   19. TOAST NOTIFICATION
+   ========================================== */
+
+.toast {
+    position: fixed;
+    bottom: -100px;
+    right: 30px;
+    background: var(--bg-overlay);
+    backdrop-filter: blur(20px);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-hover);
+    box-shadow: 0 8px 30px rgba(74, 158, 255, 0.3);
+    z-index: var(--z-modal);
+    transition: bottom var(--transition-normal);
+    max-width: 400px;
+}
+
+.toast.show {
+    bottom: 30px;
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.toast-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.toast-message {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* ==========================================
+   20. THEME TOGGLE
+   ========================================== */
+
+.theme-toggle {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: var(--z-fixed);
+    box-shadow: 0 8px 20px rgba(74, 158, 255, 0.3);
+    transition: all var(--transition-normal);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(180deg);
+    box-shadow: 0 12px 30px rgba(74, 158, 255, 0.5);
+}
+
+.theme-toggle:active {
+    transform: scale(1.05) rotate(180deg);
+}
+
+/* ==========================================
+   21. ANIMATIONS DE RÉVÉLATION
+   ========================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   22. SCROLLBAR PERSONNALISÉE
+   ========================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--accent-blue), var(--accent-cyan));
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+}
+
+/* ==========================================
+   23. RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 1024px) {
+    :root {
+        --spacing-3xl: 3rem;
+    }
+
+    .hero {
+        min-height: 90vh;
+    }
+
+    .stats-container,
+    .about-content,
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-xl: 1.5rem;
+        --spacing-2xl: 2rem;
+        --spacing-3xl: 2.5rem;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--bg-overlay);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: var(--spacing-xl);
+        gap: var(--spacing-md);
+        transition: left var(--transition-normal);
+        border-right: 1px solid var(--border-color);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-container,
+    .about-content,
+    .projects-grid,
+    .partners-grid,
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        padding: var(--spacing-xl);
+    }
+
+    .modal-content {
+        padding: var(--spacing-xl);
+        width: 95%;
+    }
+
+    .theme-toggle {
+        width: 50px;
+        height: 50px;
+        top: 90px;
+        right: 20px;
+    }
+
+    .scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .toast {
+        right: 20px;
+        max-width: calc(100% - 40px);
+    }
+
+    .floating-element {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .hero {
+        padding: var(--spacing-lg);
+    }
+
+    .stat-card,
+    .about-card,
+    .project-card,
+    .partner-card,
+    .resource-card {
+        padding: var(--spacing-lg);
+    }
+
+    .modal-content {
+        padding: var(--spacing-lg);
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================
+   24. TIMELINE
+   ========================================== */
+
+.timeline {
+    position: relative;
+    padding: var(--spacing-xl) 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, 
+        transparent,
+        var(--accent-blue),
+        var(--accent-cyan),
+        var(--accent-blue),
+        transparent
+    );
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: var(--spacing-3xl);
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.timeline-content {
+    width: 45%;
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.timeline-content:hover {
+    transform: scale(1.02);
+    border-color: var(--border-hover);
+    box-shadow: 0 10px 30px rgba(74, 158, 255, 0.2);
+}
+
+.timeline-date {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        flex-direction: row !important;
+    }
+
+    .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px;
+    }
+
+    .timeline-date {
+        left: 20px;
+        transform: translateX(-50%);
+    }
+}
+
+/* ==========================================
+   25. TESTIMONIALS
+   ========================================== */
+
+.testimonials-section {
+    padding: var(--spacing-3xl) var(--spacing-xl);
+    position: relative;
+    z-index: 10;
+}
+
+.testimonials-slider {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.testimonial {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-3xl);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+}
+
+.testimonial:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 15px 40px rgba(74, 158, 255, 0.2);
+}
+
+.testimonial-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+    font-style: italic;
+    position: relative;
+}
+
+.testimonial-text::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--accent-blue);
+    opacity: 0.3;
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    font-family: Georgia, serif;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
+}
+
+.author-info h4 {
+    color: var(--accent-blue);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.1rem;
+}
+
+.author-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   26. FAQ SECTION
+   ========================================== */
+
+.faq-section {
+    padding: var(--spacing-3xl) var(--spacing-xl);
+    position: relative;
+    z-index: 10;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-lg);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.faq-item:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 5px 20px rgba(74, 158, 255, 0.15);
+}
+
+.faq-question {
+    padding: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--accent-blue);
+    user-select: none;
+}
+
+.faq-question:hover {
+    color: var(--accent-cyan);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), 
+                padding 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 600px;
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+}
+
+.faq-icon {
+    transition: transform var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+/* ==========================================
+   27. DASHBOARD PREVIEW
+   ========================================== */
+
+.dashboard-preview {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.mini-stat {
+    background: rgba(74, 158, 255, 0.08);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+}
+
+.mini-stat:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-hover);
+    box-shadow: 0 8px 20px rgba(74, 158, 255, 0.15);
+}
+
+.mini-stat-value {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--accent-blue);
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-primary);
+}
+
+.mini-stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ==========================================
+   28. VIDEO SECTION
+   ========================================== */
+
+.video-section {
+    position: relative;
+    padding: var(--spacing-3xl) var(--spacing-xl);
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(74, 158, 255, 0.08), 
+        rgba(124, 58, 237, 0.08)
+    );
+    z-index: 1;
+}
+
+.video-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ==========================================
+   29. GLITCH EFFECT
+   ========================================== */
+
+.glitch {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--accent-cyan);
+    clip: rect(24px, 9999px, 90px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--accent-purple);
+    clip: rect(85px, 9999px, 140px, 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(61px, 9999px, 52px, 0); }
+    10% { clip: rect(84px, 9999px, 85px, 0); }
+    20% { clip: rect(2px, 9999px, 94px, 0); }
+    30% { clip: rect(58px, 9999px, 48px, 0); }
+    40% { clip: rect(31px, 9999px, 73px, 0); }
+    50% { clip: rect(50px, 9999px, 11px, 0); }
+    60% { clip: rect(91px, 9999px, 28px, 0); }
+    70% { clip: rect(15px, 9999px, 67px, 0); }
+    80% { clip: rect(73px, 9999px, 43px, 0); }
+    90% { clip: rect(38px, 9999px, 56px, 0); }
+    100% { clip: rect(20px, 9999px, 80px, 0); }
+}
+
+/* ==========================================
+   30. PULSE ANIMATION
+   ========================================== */
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 0.85;
+    }
+}
+
+.pulse {
+    animation: pulse 2.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+/* ==========================================
+   31. SKELETON LOADING
+   ========================================== */
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(74, 158, 255, 0.05) 0%,
+        rgba(74, 158, 255, 0.15) 50%,
+        rgba(74, 158, 255, 0.05) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: var(--radius-md);
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-text {
+    height: 1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.skeleton-title {
+    height: 2rem;
+    width: 60%;
+    margin-bottom: var(--spacing-md);
+}
+
+.skeleton-image {
+    height: 200px;
+    width: 100%;
+}
+
+/* ==========================================
+   32. BADGE SYSTEM
+   ========================================== */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.badge-primary {
+    background: rgba(74, 158, 255, 0.15);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(74, 158, 255, 0.3);
+}
+
+.badge-success {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent-green);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-warning {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.badge-info {
+    background: rgba(124, 58, 237, 0.15);
+    color: var(--accent-purple);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+/* ==========================================
+   33. BREADCRUMB
+   ========================================== */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) 0;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.breadcrumb-item:hover {
+    color: var(--accent-blue);
+}
+
+.breadcrumb-item.active {
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+.breadcrumb-separator {
+    color: var(--text-muted);
+    opacity: 0.5;
+}
+
+/* ==========================================
+   34. ALERT BOXES
+   ========================================== */
+
+.alert {
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    border-left: 4px solid;
+}
+
+.alert-info {
+    background: rgba(74, 158, 255, 0.1);
+    border-color: var(--accent-blue);
+    color: var(--text-secondary);
+}
+
+.alert-success {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--accent-green);
+    color: var(--text-secondary);
+}
+
+.alert-warning {
+    background: rgba(251, 191, 36, 0.1);
+    border-color: #fbbf24;
+    color: var(--text-secondary);
+}
+
+.alert-error {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+    color: var(--text-secondary);
+}
+
+.alert-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+}
+
+/* ==========================================
+   35. TOOLTIPS
+   ========================================== */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-overlay);
+    color: var(--text-primary);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    z-index: var(--z-tooltip);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+.tooltip-text::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--bg-overlay);
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ==========================================
+   36. DROPDOWN
+   ========================================== */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    transition: all var(--transition-fast);
+}
+
+.dropdown-toggle:hover {
+    border-color: var(--border-hover);
+    background: rgba(74, 158, 255, 0.05);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    background: var(--bg-overlay);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-fast);
+    z-index: var(--z-dropdown);
+    box-shadow: var(--shadow-lg);
+}
+
+.dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: block;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.dropdown-item:hover {
+    background: rgba(74, 158, 255, 0.1);
+    color: var(--accent-blue);
+}
+
+/* ==========================================
+   37. PAGINATION
+   ========================================== */
+
+.pagination {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.page-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    min-width: 40px;
+    text-align: center;
+}
+
+.page-item:hover {
+    background: rgba(74, 158, 255, 0.1);
+    border-color: var(--border-hover);
+    color: var(--accent-blue);
+}
+
+.page-item.active {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    border-color: transparent;
+    color: white;
+}
+
+.page-item.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ==========================================
+   38. TABS
+   ========================================== */
+
+.tabs {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-xl);
+}
+
+.tab-list {
+    display: flex;
+    gap: var(--spacing-lg);
+    list-style: none;
+}
+
+.tab-item {
+    padding: var(--spacing-md) var(--spacing-lg);
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+}
+
+.tab-item:hover {
+    color: var(--text-primary);
+}
+
+.tab-item.active {
+    color: var(--accent-blue);
+    border-bottom-color: var(--accent-blue);
+}
+
+.tab-content {
+    padding: var(--spacing-lg) 0;
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ==========================================
+   39. ACCORDIONS
+   ========================================== */
+
+.accordion {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    padding: var(--spacing-lg);
+    background: var(--bg-card);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--transition-fast);
+}
+
+.accordion-header:hover {
+    background: rgba(74, 158, 255, 0.05);
+}
+
+.accordion-title {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.accordion-icon {
+    transition: transform var(--transition-normal);
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 1000px;
+}
+
+.accordion-body {
+    padding: var(--spacing-lg);
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ==========================================
+   40. PRINT STYLES
+   ========================================== */
+
+@media print {
+    .navbar,
+    .hamburger,
+    .theme-toggle,
+    .scroll-top,
+    .floating-element,
+    #particleCanvas,
+    .animated-bg {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .section-title,
+    .hero-title {
+        color: black;
+        -webkit-text-fill-color: black;
+    }
+
+    .stat-card,
+    .about-card,
+    .project-card,
+    .partner-card,
+    .resource-card {
+        border: 1px solid #ddd;
+        box-shadow: none;
+        break-inside: avoid;
+    }
+}
+/* Try to put some pictures selon votre choix */
+</style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo" data-text="D4SD">D4SD</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Accueil</a></li>
+                <li><a href="#about" class="nav-link">À Propos</a></li>
+                <li><a href="#projects" class="nav-link">Projets</a></li>
+                <li><a href="#partners" class="nav-link">Partenaires</a></li>
+                <li><a href="#resources" class="nav-link">Ressources</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" title="Changer le thème">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="floating-element float-1"></div>
+        <div class="floating-element float-2"></div>
+        <div class="floating-element float-3"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title glitch" data-text="Digital for Sustainable Development">
+                Digital for Sustainable Development
+            </h1>
+            <p class="hero-subtitle">
+                Transformer l'avenir de l'Afrique et du monde arabe grâce à l'innovation numérique et au développement durable
+            </p>
+            <div class="cta-buttons">
+                <a href="#about" class="btn btn-primary">
+                    <span style="position: relative; z-index: 1;">Découvrir</span>
+                </a>
+                <a href="#projects" class="btn btn-secondary">Nos Projets</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section reveal">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <div class="stat-number" data-count="150">0+</div>
+                <div class="stat-label">Partenaires Actifs</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <div class="stat-number" data-count="89">0+</div>
+                <div class="stat-label">Projets Réalisés</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                    </svg>
+                </div>
+                <div class="stat-number" data-count="50000">0+</div>
+                <div class="stat-label">Bénéficiaires</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                </div>
+                <div class="stat-number" data-count="35">0+</div>
+                <div class="stat-label">Pays Impliqués</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section reveal" id="about">
+        <h2 class="section-title">Notre Mission</h2>
+        <div class="about-content">
+            <div class="about-card">
+                <div class="card-icon">
+                    <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <h3 class="card-title">Innovation Numérique</h3>
+                <p class="card-text">
+                    Nous développons des solutions technologiques de pointe pour répondre aux défis du développement durable en Afrique et dans le monde arabe. Notre approche combine intelligence artificielle, blockchain et technologies cloud.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="card-icon">
+                    <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M2 12h20"></path>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+                <h3 class="card-title">Développement Durable</h3>
+                <p class="card-text">
+                    Notre engagement envers les Objectifs de Développement Durable (ODD) guide chacune de nos initiatives. Nous travaillons à créer un impact positif et mesurable sur l'environnement et les communautés.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="card-icon">
+                    <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h3 class="card-title">Collaboration Régionale</h3>
+                <p class="card-text">
+                    Nous facilitons le partage de connaissances et les partenariats entre les pays africains et arabes, créant un réseau dynamique d'innovation et de développement collaboratif.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="card-icon">
+                    <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </div>
+                <h3 class="card-title">Excellence & Qualité</h3>
+                <p class="card-text">
+                    Nous maintenons les plus hauts standards de qualité dans tous nos projets, en utilisant les meilleures pratiques internationales et en investissant continuellement dans la formation et l'innovation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section reveal" id="projects">
+        <h2 class="section-title">Nos Projets Phares</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-project="smart-cities">
+                <div class="project-image">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Smart Cities Africa</h3>
+                    <p class="project-description">
+                        Développement de villes intelligentes utilisant l'IoT, l'IA et les énergies renouvelables pour créer des environnements urbains durables et connectés.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">IoT</span>
+                        <span class="tag">Intelligence Artificielle</span>
+                        <span class="tag">Énergies Renouvelables</span>
+                    </div>
+                    <div class="project-progress">
+                        <div class="progress-label">
+                            <span>Progression</span>
+                            <span class="progress-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-meta">
+                            <span>📍 12 Villes</span>
+                            <span>👥 25K+ Bénéficiaires</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="agritech">
+                <div class="project-image">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M12 2v20M2 12h20"></path>
+                        <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">AgriTech Innovation</h3>
+                    <p class="project-description">
+                        Solutions technologiques pour l'agriculture moderne : drones, capteurs intelligents, et plateformes de gestion pour optimiser les rendements agricoles.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Agriculture</span>
+                        <span class="tag">Drones</span>
+                        <span class="tag">Big Data</span>
+                    </div>
+                    <div class="project-progress">
+                        <div class="progress-label">
+                            <span>Progression</span>
+                            <span class="progress-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-meta">
+                            <span>📍 8 Pays</span>
+                            <span>👥 15K+ Agriculteurs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="edutech">
+                <div class="project-image">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Education 4.0</h3>
+                    <p class="project-description">
+                        Plateforme d'apprentissage en ligne avec IA adaptative, réalité virtuelle et contenus multilingues pour démocratiser l'accès à l'éducation de qualité.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">E-Learning</span>
+                        <span class="tag">VR/AR</span>
+                        <span class="tag">IA Adaptive</span>
+                    </div>
+                    <div class="project-progress">
+                        <div class="progress-label">
+                            <span>Progression</span>
+                            <span class="progress-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-meta">
+                            <span>📍 20 Pays</span>
+                            <span>👥 100K+ Étudiants</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="health">
+                <div class="project-image">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Digital Health Hub</h3>
+                    <p class="project-description">
+                        Télémédecine, dossiers médicaux électroniques et diagnostics assistés par IA pour améliorer l'accès aux soins de santé dans les zones rurales.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Télémédecine</span>
+                        <span class="tag">IA Médicale</span>
+                        <span class="tag">Blockchain</span>
+                    </div>
+                    <div class="project-progress">
+                        <div class="progress-label">
+                            <span>Progression</span>
+                            <span class="progress-percent">65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-meta">
+                            <span>📍 15 Régions</span>
+                            <span>👥 50K+ Patients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="fintech">
+                <div class="project-image">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">FinTech Inclusion</h3>
+                    <p class="project-description">
+                        Solutions de paiement mobile, microfinance digitale et services bancaires sans agence pour l'inclusion financière des populations non bancarisées.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Mobile Money</span>
+                        <span class="tag">Microfinance</span>
+                        <span class="tag">Crypto</span>
+                    </div>
+                    <div class="project-progress">
+                        <div class="progress-label">
+                            <span>Progression</span>
+                            <span class="progress-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-meta">
+                            <span>📍 18 Pays</span>
+                            <span>👥 200K+ Utilisateurs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="climate">
+                <div class="project-image">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                    </svg>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Climate Action Tech</h3>
+                    <p class="project-description">
+                        Monitoring environnemental avec satellites, prévision climatique par IA et marketplace carbone pour combattre le changement climatique.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Climat</span>
+                        <span class="tag">Satellite</span>
+                        <span class="tag">Carbon Credit</span>
+                    </div>
+                    <div class="project-progress">
+                        <div class="progress-label">
+                            <span>Progression</span>
+                            <span class="progress-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-meta">
+                            <span>📍 25 Pays</span>
+                            <span>👥 Global Impact</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section reveal" id="partners">
+        <h2 class="section-title">Nos Partenaires</h2>
+        <div class="partners-grid">
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M2 12h20"></path>
+                    </svg>
+                </div>
+                <div class="partner-name">Union Africaine</div>
+                <div class="partner-country">Afrique</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </div>
+                <div class="partner-name">Ligue Arabe</div>
+                <div class="partner-country">Monde Arabe</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    </svg>
+                </div>
+                <div class="partner-name">Nations Unies</div>
+                <div class="partner-country">International</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                        <line x1="9" y1="21" x2="9" y2="9"></line>
+                    </svg>
+                </div>
+                <div class="partner-name">Maroc Digital</div>
+                <div class="partner-country">Maroc</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <div class="partner-name">Tunisia Tech</div>
+                <div class="partner-country">Tunisie</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <div class="partner-name">Egypt Innovation</div>
+                <div class="partner-country">Égypte</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                        <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                    </svg>
+                </div>
+                <div class="partner-name">Sénégal Digital</div>
+                <div class="partner-country">Sénégal</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                </div>
+                <div class="partner-name">Kenya ICT</div>
+                <div class="partner-country">Kenya</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <div class="partner-name">Rwanda Tech</div>
+                <div class="partner-country">Rwanda</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6"></path>
+                        <path d="m4.93 4.93 4.24 4.24m5.66 5.66 4.24 4.24"></path>
+                        <path d="M1 12h6m6 0h6"></path>
+                        <path d="m4.93 19.07 4.24-4.24m5.66-5.66 4.24-4.24"></path>
+                    </svg>
+                </div>
+                <div class="partner-name">Ghana Digital</div>
+                <div class="partner-country">Ghana</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    </svg>
+                </div>
+                <div class="partner-name">Nigeria Tech Hub</div>
+                <div class="partner-country">Nigéria</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <div class="partner-name">Côte d'Ivoire Tech</div>
+                <div class="partner-country">Côte d'Ivoire</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section reveal" id="resources">
+        <h2 class="section-title">Ressources & Publications</h2>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-header">
+                    <div class="resource-icon">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="resource-title">Rapport Annuel 2024</h3>
+                </div>
+                <p class="resource-description">
+                    Analyse complète des activités, réalisations et impact de nos initiatives de transformation digitale en 2024.
+                </p>
+                <div class="resource-meta">
+                    <span>📄 PDF • 5.2 MB</span>
+                    <button class="download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Télécharger
+                    </button>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-header">
+                    <div class="resource-icon">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="resource-title">Guide d'Innovation</h3>
+                </div>
+                <p class="resource-description">
+                    Manuel pratique pour implémenter des solutions digitales innovantes dans le contexte africain et arabe.
+                </p>
+                <div class="resource-meta">
+                    <span>📘 PDF • 3.8 MB</span>
+                    <button class="download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Télécharger
+                    </button>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-header">
+                    <div class="resource-icon">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="resource-title">Étude d'Impact 2024</h3>
+                </div>
+                <p class="resource-description">
+                    Mesure quantitative et qualitative de l'impact social, économique et environnemental de nos projets.
+                </p>
+                <div class="resource-meta">
+                    <span>📊 PDF • 4.5 MB</span>
+                    <button class="download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Télécharger
+                    </button>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-header">
+                    <div class="resource-icon">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="resource-title">Stratégie 2025-2030</h3>
+                </div>
+                <p class="resource-description">
+                    Vision stratégique et feuille de route pour les cinq prochaines années de développement digital durable.
+                </p>
+                <div class="resource-meta">
+                    <span>📋 PDF • 6.1 MB</span>
+                    <button class="download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Télécharger
+                    </button>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-header">
+                    <div class="resource-icon">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="resource-title">Best Practices Guide</h3>
+                </div>
+                <p class="resource-description">
+                    Compilation des meilleures pratiques et leçons apprises de nos projets de transformation digitale.
+                </p>
+                <div class="resource-meta">
+                    <span>📖 PDF • 2.9 MB</span>
+                    <button class="download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Télécharger
+                    </button>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-header">
+                    <div class="resource-icon">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="resource-title">Technical Toolkit</h3>
+                </div>
+                <p class="resource-description">
+                    Boîte à outils technique avec frameworks, templates et ressources pour développeurs et innovateurs.
+                </p>
+                <div class="resource-meta">
+                    <span>💻 ZIP • 15.3 MB</span>
+                    <button class="download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Télécharger
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section reveal" id="contact">
+        <h2 class="section-title">Contactez-Nous</h2>
+        <div class="contact-container">
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="firstName">Prénom</label>
+                        <input type="text" id="firstName" class="form-input" placeholder="Votre prénom" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="lastName">Nom</label>
+                        <input type="text" id="lastName" class="form-input" placeholder="Votre nom" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" class="form-input" placeholder="votre.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Téléphone</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="+212 XXX XXX XXX">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="organization">Organisation</label>
+                    <input type="text" id="organization" class="form-input" placeholder="Votre organisation">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="subject">Sujet</label>
+                    <input type="text" id="subject" class="form-input" placeholder="Sujet de votre message" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="message">Message</label>
+                    <textarea id="message" class="form-textarea" placeholder="Votre message..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                    Envoyer le Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>D4SD Hub</h3>
+                <p>
+                    Plateforme de transformation digitale pour le développement durable en Afrique et dans le monde arabe.
+                </p>
+                <div class="social-links">
+                    <div class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </div>
+                    <div class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </div>
+                    <div class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </div>
+                    <div class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <a href="#about">À Propos</a>
+                <a href="#projects">Projets</a>
+                <a href="#partners">Partenaires</a>
+                <a href="#resources">Ressources</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Ressources</h3>
+                <a href="#">Documentation</a>
+                <a href="#">Blog</a>
+                <a href="#">Actualités</a>
+                <a href="#">Événements</a>
+                <a href="#">FAQ</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📧 contact@d4sdhub.org</p>
+                <p>📞 +212 XXX XXX XXX</p>
+                <p>📍 Casablanca, Maroc</p>
+                <p>🌍 35+ Pays Partenaires</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 D4SD Hub - Digital for Sustainable Development. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Titre du Projet</h2>
+                <button class="modal-close" id="modalClose">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+       ">
+        <div class="toast-content">
+            <div class="toast-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <div class="toast-message" id="toastMessage">Message envoyé avec succès!</div>
+        </div>
+    </div>
+
+    <script>
+        // Particle Canvas Animation
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let animationFrameId;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(99, 102, 241, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const particleCount = Math.min(100, Math.floor(canvas.width * canvas.height / 10000));
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            // Draw connections
+            particles.forEach((p1, i) => {
+                particles.slice(i + 1).forEach(p2 => {
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(99, 102, 241, ${0.2 * (1 - distance / 150)})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                });
+            });
+
+            animationFrameId = requestAnimationFrame(animateParticles);
+        }
+
+        // Initialize
+        resizeCanvas();
+        initParticles();
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initParticles();
+        });
+
+        // Navigation
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Hamburger Menu
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active Nav Link on Scroll
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Navbar Scroll Effect
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            updateActiveNavLink();
+            lastScrollTop = scrollTop;
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        function reveal() {
+            revealElements.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        // Stats Counter Animation
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-count'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current) + '+';
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target + '+';
+                }
+            };
+
+            updateCounter();
+        }
+
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let statsAnimated = false;
+
+        function checkStatsInView() {
+            const statsSection = document.querySelector('.stats-section');
+            const rect = statsSection.getBoundingClientRect();
+            const isInView = rect.top < window.innerHeight && rect.bottom >= 0;
+
+            if (isInView && !statsAnimated) {
+                statNumbers.forEach(stat => animateCounter(stat));
+                statsAnimated = true;
+            }
+        }
+
+        window.addEventListener('scroll', checkStatsInView);
+        checkStatsInView();
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Modal Functionality
+        const modal = document.getElementById('projectModal');
+        const modalClose = document.getElementById('modalClose');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        const projectDetails = {
+            'smart-cities': {
+                title: 'Smart Cities Africa',
+                content: `
+                    <h3>Vue d'ensemble</h3>
+                    <p>Le projet Smart Cities Africa vise à transformer les villes africaines en hubs technologiques intelligents, durables et résilients. En combinant l'Internet des Objets (IoT), l'Intelligence Artificielle et les énergies renouvelables, nous créons des écosystèmes urbains qui améliorent la qualité de vie des citoyens tout en réduisant l'empreinte environnementale.</p>
+                    
+                    <h3>Objectifs Clés</h3>
+                    <ul>
+                        <li>Optimisation de la consommation énergétique avec des réseaux intelligents</li>
+                        <li>Gestion efficace des déchets et recyclage automatisé</li>
+                        <li>Transport urbain connecté et mobilité durable</li>
+                        <li>Infrastructure de données pour la prise de décision en temps réel</li>
+                        <li>Services publics digitalisés et accessibles</li>
+                    </ul>
+                    
+                    <h3>Technologies Utilisées</h3>
+                    <p>Capteurs IoT, Intelligence Artificielle, Big Data Analytics, Blockchain pour la transparence, Énergies solaires et éoliennes, Plateformes cloud sécurisées</p>
+                    
+                    <h3>Impact</h3>
+                    <p>Plus de 25,000 citoyens bénéficient déjà de nos solutions dans 12 villes pilotes, avec une réduction moyenne de 30% de la consommation énergétique et une amélioration de 40% de l'efficacité des services publics.</p>
+                `
+            },
+            'agritech': {
+                title: 'AgriTech Innovation',
+                content: `
+                    <h3>Vue d'ensemble</h3>
+                    <p>AgriTech Innovation révolutionne l'agriculture traditionnelle en intégrant des technologies de pointe pour augmenter les rendements, réduire les pertes et promouvoir des pratiques agricoles durables.</p>
+                    
+                    <h3>Solutions Proposées</h3>
+                    <ul>
+                        <li>Drones pour la surveillance des cultures et l'analyse de santé des plantes</li>
+                        <li>Capteurs de sol intelligents pour optimiser l'irrigation</li>
+                        <li>Plateformes de prévision météorologique avec IA</li>
+                        <li>Marketplace digitale pour connecter agriculteurs et acheteurs</li>
+                        <li>Formation continue via application mobile</li>
+                    </ul>
+                    
+                    <h3>Résultats</h3>
+                    <p>15,000 agriculteurs formés, augmentation moyenne de 45% des rendements, réduction de 60% du gaspillage d'eau, et création de 2,000 emplois dans la tech agricole.</p>
+                `
+            },
+            'edutech': {
+                title: 'Education 4.0',
+                content: `
+                    <h3>Vue d'ensemble</h3>
+                    <p>Education 4.0 démocratise l'accès à une éducation de qualité grâce à des technologies immersives et adaptatives qui personnalisent l'apprentissage selon les besoins de chaque étudiant.</p>
+                    
+                    <h3>Fonctionnalités Principales</h3>
+                    <ul>
+                        <li>Plateforme d'e-learning avec contenu multilingue (français, arabe, anglais)</li>
+                        <li>IA adaptative qui personnalise les parcours d'apprentissage</li>
+                        <li>Réalité virtuelle pour des expériences immersives</li>
+                        <li>Gamification pour augmenter l'engagement</li>
+                        <li>Certifications reconnues internationalement</li>
+                    </ul>
+                    
+                    <h3>Impact Social</h3>
+                    <p>100,000 étudiants actifs, taux de complétion de 85%, partenariats avec 50 universités, et amélioration moyenne de 35% des résultats académiques.</p>
+                `
+            },
+            'health': {
+                title: 'Digital Health Hub',
+                content: `
+                    <h3>Vue d'ensemble</h3>
+                    <p>Digital Health Hub transforme l'accès aux soins de santé en utilisant la télémédecine et l'IA pour offrir des services médicaux de qualité, même dans les zones les plus reculées.</p>
+                    
+                    <h3>Services Offerts</h3>
+                    <ul>
+                        <li>Consultations médicales à distance 24/7</li>
+                        <li>Diagnostics assistés par IA pour détecter les maladies</li>
+                        <li>Dossiers médicaux électroniques sécurisés via blockchain</li>
+                        <li>Surveillance de la santé avec wearables connectés</li>
+                        <li>Pharmacie digitale avec livraison à domicile</li>
+                    </ul>
+                    
+                    <h3>Réalisations</h3>
+                    <p>50,000 patients suivis, 200 médecins connectés, réduction de 70% du temps d'attente, et amélioration de 50% de l'accès aux soins dans les zones rurales.</p>
+                `
+            },
+            'fintech': {
+                title: 'FinTech Inclusion',
+                content: `
+                    <h3>Vue d'ensemble</h3>
+                    <p>FinTech Inclusion offre des services financiers accessibles à tous, en particulier aux populations non bancarisées, grâce au mobile money et à la blockchain.</p>
+                    
+                    <h3>Solutions Financières</h3>
+                    <ul>
+                        <li>Portefeuille mobile pour paiements et transferts</li>
+                        <li>Microcrédits avec évaluation de risque par IA</li>
+                        <li>Épargne automatique et investissements simplifiés</li>
+                        <li>Assurances parametriques pour agriculteurs</li>
+                        <li>Formation financière digitale</li>
+                    </ul>
+                    
+                    <h3>Impact Économique</h3>
+                    <p>200,000 utilisateurs actifs, 50 millions de transactions, 15,000 microcrédits accordés, et inclusion financière de 80,000 personnes précédemment non bancarisées.</p>
+                `
+            },
+            'climate': {
+                title: 'Climate Action Tech',
+                content: `
+                    <h3>Vue d'ensemble</h3>
+                    <p>Climate Action Tech utilise la technologie spatiale et l'IA pour monitorer, prédire et atténuer les effets du changement climatique en Afrique et dans le monde arabe.</p>
+                    
+                    <h3>Initiatives Climatiques</h3>
+                    <ul>
+                        <li>Surveillance par satellite des forêts et océans</li>
+                        <li>Prévisions météorologiques avancées pour l'agriculture</li>
+                        <li>Marketplace de crédits carbone transparente</li>
+                        <li>Détection précoce des catastrophes naturelles</li>
+                        <li>Plateforme de reforestation avec suivi en temps réel</li>
+                    </ul>
+                    
+                    <h3>Contribution Environnementale</h3>
+                    <p>25 pays couverts, 1 million d'hectares surveillés, 500,000 arbres plantés, et réduction estimée de 2 millions de tonnes de CO2.</p>
+                `
+            }
+        };
+
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const projectId = card.getAttribute('data-project');
+                const details = projectDetails[projectId];
+                
+                if (details) {
+                    document.getElementById('modalTitle').textContent = details.title;
+                    document.getElementById('modalBody').innerHTML = details.content;
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // FAQ Functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                faqItems.forEach(faq => faq.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+
+        function showToast(message, duration = 3000) {
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, duration);
+        }
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                organization: document.getElementById('organization').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            // Simulate form submission
+            console.log('Form submitted:', formData);
+            
+            // Show success message
+            showToast('Message envoyé avec succès! Nous vous contacterons bientôt.');
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Download Buttons
+        const downloadButtons = document.querySelectorAll('.download-btn');
+        
+        downloadButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const resourceCard = btn.closest('.resource-card');
+                const resourceTitle = resourceCard.querySelector('.resource-title').textContent;
+                showToast(`Téléchargement de "${resourceTitle}" en cours...`);
+            });
+        });
+
+        // Theme Toggle (Optional - can be expanded)
+        const themeToggle = document.getElementById('themeToggle');
+        let isDark = true;
+
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            // Add theme toggle logic here if needed
+            showToast(isDark ? 'Mode sombre activé' : 'Mode clair activé');
+        });
+
+        // Loader
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Add parallax effect to floating elements
+        window.addEventListener('mousemove', (e) => {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+
+            floatingElements.forEach((element, index) => {
+                const speed = (index + 1) * 20;
+                const x = (mouseX - 0.5) * speed;
+                const y = (mouseY - 0.5) * speed;
+                element.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+
+        // Progress bar animation on scroll
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            
+            progressBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                const isInView = rect.top < window.innerHeight && rect.bottom >= 0;
+                
+                if (isInView) {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                }
+            });
+        }
+
+        let progressAnimated = false;
+        window.addEventListener('scroll', () => {
+            if (!progressAnimated) {
+                animateProgressBars();
+                progressAnimated = true;
+            }
+        });
+
+        // Add hover effect to cards
+        const cards = document.querySelectorAll('.stat-card, .about-card, .project-card, .partner-card, .resource-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Intersection Observer for better performance
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Console welcome message
+        console.log('%c🚀 D4SD Hub - Digital for Sustainable Development', 'font-size: 20px; font-weight: bold; color: #6366f1;');
+        console.log('%cTransforming Africa and the Arab World through Digital Innovation', 'font-size: 14px; color: #8b5cf6;');
+        console.log('%cWebsite built with ❤️ for a sustainable future', 'font-size: 12px; color: #ec4899;');
+    </script>
+</body>
+</html>
